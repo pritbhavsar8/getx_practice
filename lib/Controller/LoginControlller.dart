@@ -10,6 +10,11 @@ class LoginController extends GetxController
   TextEditingController password = TextEditingController();
   RxBool islogin = false.obs;
   RxString msg ="".obs;
+  RxBool visible_password = false.obs;
+
+  set_visibility(){
+    visible_password.value = true;
+  }
 
   Login(context) async{
     var params = {

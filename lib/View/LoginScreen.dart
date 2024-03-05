@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../Controller/LoginControlller.dart';
 
 class LoginScreen extends StatelessWidget {
-
+bool visible_password = true;
   LoginController c = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
@@ -46,12 +46,21 @@ class LoginScreen extends StatelessWidget {
               child: TextField(
                 controller:c.password ,
                 keyboardType: TextInputType.text,
+                obscureText: c.visible_password.value,
                 decoration: InputDecoration(
                     label: Text("Password"),
                     hintText: "please enter password",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(11.0)
-                    )
+                    ),
+                  suffixIcon: Obx(() => IconButton(
+                    icon: (c.visible_password==true)?Icon(Icons.visibility_off):Icon(Icons.visibility),
+                    onPressed: (){
+                      c.visible_password();
+                    },
+
+                  ))
+
                 ),
               ) ,
             ),

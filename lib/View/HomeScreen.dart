@@ -15,6 +15,7 @@ class _HomeScrrenState extends State<HomeScrren>
   HomeController c = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
+    print("build");
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: (){
@@ -26,9 +27,8 @@ class _HomeScrrenState extends State<HomeScrren>
         title: Text("HomeScrren"),
         centerTitle: true,
       ),
-      body: Center(
-        child: Obx(() =>Text(c.count.toString()),)
-      ),
+      body:Obx(() =>  Center(
+        child: Text(c.count.toString()),))
     );
   }
 }
